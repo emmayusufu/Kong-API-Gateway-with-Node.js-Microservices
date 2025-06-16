@@ -1,0 +1,66 @@
+### Health Checks (Direct to services)
+GET http://localhost:3001/health
+###
+GET http://localhost:3002/health
+###
+GET http://localhost:3003/health
+###
+GET http://localhost:3004/health
+
+### Through Kong Gateway
+
+### Register User
+POST http://localhost:8000/users/api/users/register
+Content-Type: application/json
+
+{
+  "username": "johndoe",
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+### Login User
+POST http://localhost:8000/users/api/users/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "password123"
+}
+
+### Get User Profile (use token from login)
+GET http://localhost:8000/users/api/users/profile
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+### Get Products
+GET http://localhost:8000/products/api/products
+
+### Get Products with Filters
+GET http://localhost:8000/products/api/products?category=Electronics&minPrice=100
+
+### Get Single Product
+GET http://localhost:8000/products/api/products/1
+
+### Create Order
+POST http://localhost:8000/orders/api/orders
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 2
+    },
+    {
+      "productId": 3,
+      "quantity": 1
+    }
+  ]
+}
+
+### Get User Orders
+GET http://localhost:8000/orders/api/orders/user/1
+
+### Get User Notifications
+GET http://localhost:8000/notifications/api/notifications/user/1
