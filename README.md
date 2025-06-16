@@ -25,8 +25,8 @@ This project demonstrates a microservices architecture with:
 ### 1. Clone and Setup
 
 ```bash
-git clone <your-repo-url>
-cd kong-nodejs-example
+git clone https://github.com/emmayusufu/Kong-API-Gateway-with-Node.js-Microservices.git
+cd Kong-API-Gateway-with-Node.js-Microservices
 ```
 
 ### 2. Make Setup Script Executable
